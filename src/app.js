@@ -7,7 +7,10 @@ app.use(express.static(path.join(__dirname, '../public')))
 app.set('view engine', 'hbs')
 
 app.get('', (req,res) => {
-    res.render('index')
+    res.render('index', {
+        title: 'Weather',
+        name: 'Patrick Tsang'
+    })
 })
 
 app.get('/weather', (req,res) => {
