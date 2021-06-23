@@ -40,9 +40,32 @@ app.get('/help', (req,res) => {
 })
 
 app.get('/weather', (req,res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: 'You must provide an address!'
+        })
+    }
+    
     res.send({
         forecast: 'Clear',
-        location: 'Sydney'   
+        location: 'Sydney',
+        address: req.query.address   
+    })
+})
+
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: 'Help Article Not found!',
+        name: 'Patrick Tsang',
+        error: 'Help article not found!'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Patrick Tsang',
+        error: 'Page not found!'
     })
 })
 
