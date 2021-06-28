@@ -9,7 +9,7 @@
     "postman-request": "^2.88.1-postman.30"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
